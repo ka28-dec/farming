@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bf0yuue48pk6v"]
+
+[ext_resource type="PackedScene" uid="uid://ca106qafnt25o" path="res://scenes/player/player.tscn" id="1_e6yxx"]
+[ext_resource type="Texture2D" uid="uid://hi3xmuwqqcee" path="res://icon.svg" id="1_pl0c8"]
+
+[node name="Game" type="Node2D" unique_id=929421980]
+
+[node name="BackGround" type="Sprite2D" parent="." unique_id=192756098]
+texture = ExtResource("1_pl0c8")
+
+[node name="Objects" type="Node2D" parent="." unique_id=701982365]
+y_sort_enabled = true
+
+[node name="Player" parent="Objects" unique_id=670845438 instance=ExtResource("1_e6yxx")]
