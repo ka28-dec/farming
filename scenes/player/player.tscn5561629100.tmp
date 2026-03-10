@@ -956,5 +956,3 @@ parameters/OneShot/request = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=326442268]
 zoom = Vector2(3, 3)
-
-[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

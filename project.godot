@@ -68,6 +68,12 @@ plant={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="terrain"
+2d_physics/layer_2="player"
+2d_physics/layer_3="plants"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
