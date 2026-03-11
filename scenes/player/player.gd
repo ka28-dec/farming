@@ -3,8 +3,11 @@ extends CharacterBody2D
 @onready var move_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/MoveStateMachine/playback")
 @onready var tool_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/ToolStateMachine/playback")
 var direction: Vector2
+var last_direction: Vector2
 var speed := 100
 var can_move := true
+var tool_direction_offset := 14
+var tool_direction_offset_y := Vector2(0, 6)
 
 enum Tools {HOE, AXE, WATER}
 var current_tool: Tools = Tools.AXE
@@ -20,6 +23,8 @@ signal tool_use(tool: Tools, pos: Vector2)
 func _physics_process(_delta: float) -> void:
 	if can_move:
 		get_input()
+	if direction:
+		last_direction = direction
 	velocity = direction * speed * int(can_move) # true: 1, false: 0
 	move_and_slide()
 	animation()
@@ -32,7 +37,7 @@ func get_input() -> void:
 		tool_state_machine.travel(tool_connection[current_tool])
 		$AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		can_move = false
-		tool_use.emit(current_tool, position)
+		tool_use.emit(current_tool, position + last_direction * tool_direction_offset + tool_direction_offset_y)
 	
 	# ツール切り替え
 	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):

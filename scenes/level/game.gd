@@ -4,6 +4,7 @@ extends Node2D
 
 
 func _on_player_tool_use(tool: int, pos: Vector2) -> void:
-	var grid_pos = Vector2i(int(pos.x / 16), int(pos.y / 16))
+	var grid_pos = Vector2i(floor(pos.x / 16.0), floor(pos.y / 16.0))
 	if tool == player.Tools.HOE:
-		print("hoe")
+		$Layers/SoilLayer.set_cells_terrain_connect([grid_pos], 0, 0)
+		print(grid_pos)
