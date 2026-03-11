@@ -916,7 +916,6 @@ transitions = ["Start", "hoe", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(14, -207)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6eyoc"]
-graph_offset = Vector2(270.4, 53.6)
 nodes/output/position = Vector2(1024, 128)
 nodes/ToolStateMachine/node = SubResource("AnimationNodeStateMachine_vwwfy")
 nodes/ToolStateMachine/position = Vector2(464, 304)

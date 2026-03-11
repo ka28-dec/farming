@@ -37,7 +37,9 @@ func get_input() -> void:
 		tool_state_machine.travel(tool_connection[current_tool])
 		$AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		can_move = false
-		tool_use.emit(current_tool, position + last_direction * tool_direction_offset + tool_direction_offset_y)
+		if current_tool == Tools.HOE:
+			await $AnimationTree.animation_finished
+			tool_use.emit(current_tool, position + last_direction * tool_direction_offset + tool_direction_offset_y)
 	
 	# ツール切り替え
 	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):
