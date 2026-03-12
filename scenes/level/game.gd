@@ -27,7 +27,7 @@ func _on_player_seed_use(seed_enum: int, pos: Vector2) -> void:
 	var cell: TileData = $Layers/SoilLayer.get_cell_tile_data(grid_pos)
 	if cell:
 		var plant_pos := Vector2(grid_pos.x * 16 + 8, grid_pos.y * 16 - 4)
-		print(plant_pos)
 		var plant :StaticBody2D = plant_scene.instantiate()
+		plant.setup(seed_enum, grid_pos)
 		$Objects.add_child(plant)
 		plant.position = plant_pos

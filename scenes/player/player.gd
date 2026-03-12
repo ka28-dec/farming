@@ -16,11 +16,10 @@ const tool_connection = {
 	Tools.AXE: "axe",
 	Tools.WATER: "water",
 }
-enum Seeds {CORN, TOMATO, PUMPKIN}
-var current_seed: Seeds = Seeds.CORN
+var current_seed: Global.Seeds = Global.Seeds.CORN
 
 signal tool_use(tool: Tools, pos: Vector2)
-signal seed_use(seed: Seeds, pos: Vector2)
+signal seed_use(seed: Global.Seeds, pos: Vector2)
 
 
 func _physics_process(_delta: float) -> void:
@@ -51,7 +50,7 @@ func get_input() -> void:
 		
 	# 種切り替え
 	if Input.is_action_just_pressed("seed_toggle"):
-		current_seed = posmod(current_seed + 1, Seeds.size()) as Seeds
+		current_seed = posmod(current_seed + 1, Global.Seeds.size()) as Global.Seeds
 	
 	if Input.is_action_just_pressed("plant"):
 		can_move = false
