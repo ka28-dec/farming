@@ -65,3 +65,7 @@ func animation() -> void:
 
 func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 	can_move = true
+
+
+func axe_use() -> void:
+	tool_use.emit(current_tool, position + last_direction * tool_direction_offset + tool_direction_offset_y)

@@ -14,3 +14,10 @@ func _on_player_tool_use(tool: int, pos: Vector2) -> void:
 		var cell: TileData = $Layers/SoilLayer.get_cell_tile_data(grid_pos)
 		if cell:
 			$Layers/SoilWaterLayer.set_cell(grid_pos, 0, Vector2i(randi_range(0, 2), 0))
+			
+	if tool == player.Tools.AXE:
+		for tree in get_tree().get_nodes_in_group("Trees"):
+			if tree.position.distance_to(pos) < 16:
+				tree.hit()
+	
+	

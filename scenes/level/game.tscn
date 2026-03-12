@@ -817,17 +817,14 @@ terrain_set_0/terrain_0/name = "Main"
 terrain_set_0/terrain_0/color = Color(1, 0, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_qhoho")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ig4jx"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ny2s"]
 texture = ExtResource("5_3ny2s")
 0:0/0 = 0
-0:0/0/terrain = 0
 1:0/0 = 0
-1:0/0/terrain = 0
 2:0/0 = 0
-2:0/0/terrain = 0
 
-[sub_resource type="TileSet" id="TileSet_pn0ym"]
-sources/0 = SubResource("TileSetAtlasSource_ig4jx")
+[sub_resource type="TileSet" id="TileSet_ig4jx"]
+sources/0 = SubResource("TileSetAtlasSource_3ny2s")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2w0s"]
 texture = ExtResource("4_fq6ga")
@@ -879,8 +876,8 @@ tile_set = SubResource("TileSet_qhoho")
 [node name="SoilLayer" type="TileMapLayer" parent="Layers" unique_id=544069757]
 tile_set = SubResource("TileSet_qrcxb")
 
-[node name="SoilWaterLayer" type="TileMapLayer" parent="Layers" unique_id=43585131]
-tile_set = SubResource("TileSet_pn0ym")
+[node name="SoilWaterLayer" type="TileMapLayer" parent="Layers" unique_id=1075897734]
+tile_set = SubResource("TileSet_ig4jx")
 
 [node name="HillsLayer" type="TileMapLayer" parent="Layers" unique_id=1951804933]
 tile_map_data = PackedByteArray("AAACAP3/AAAAAAIAAAADAP3/AAABAAIAAAAEAP3/AAADAAIAAAAFAP3/AAABAAIAAAAGAP3/AAABAAIAAAAHAP3/AAABAAIAAAACAPz/AAAAAAEAAAACAPv/AAAAAAEAAAAIAP3/AAABAAIAAAAJAP3/AAACAAIAAAAJAPz/AAACAAEAAAAJAPv/AAADAAAAAAAKAPv/AAABAAIAAAALAPv/AAABAAIAAAAMAPv/AAABAAIAAAANAPv/AAACAAIAAAANAPr/AAACAAEAAAANAPn/AAACAAEAAAANAPj/AAACAAEAAAANAPf/AAACAAEAAAANAPb/AAACAAEAAAANAPX/AAACAAEAAAACAPr/AAAAAAEAAAACAPn/AAAAAAEAAAACAPj/AAAAAAEAAAACAPT/AAAAAAEAAAACAPX/AAAAAAEAAAACAPb/AAAAAAEAAAACAPf/AAAAAAEAAAACAPP/AAAAAAAAAAADAPP/AAABAAAAAAAEAPP/AAABAAAAAAAFAPP/AAABAAAAAAAGAPP/AAABAAAAAAAHAPP/AAABAAAAAAAIAPP/AAABAAAAAAAJAPP/AAABAAAAAAAKAPP/AAABAAAAAAALAPP/AAABAAAAAAAMAPP/AAABAAAAAAANAPP/AAACAAAAAAANAPT/AAACAAEAAAD1//f/AAABAAAAAAD2//f/AAABAAAAAAD3//f/AAABAAAAAAD4//f/AAABAAAAAAD5//f/AAABAAAAAAD6//f/AAABAAAAAAD7//f/AAABAAAAAAD8//f/AAACAAAAAAD8//j/AAACAAEAAAD8//n/AAACAAEAAAD8//r/AAACAAEAAAD8//v/AAACAAEAAAD8//z/AAACAAIAAAD4//z/AAABAAIAAAD5//z/AAABAAIAAAD6//z/AAABAAIAAAD7//z/AAABAAIAAAD3//z/AAADAAAAAAD3//3/AAACAAEAAAD3//7/AAACAAEAAAD3////AAACAAEAAAD3/wAAAAACAAIAAAD1/wAAAAADAAIAAAD2/wAAAAABAAIAAAD0//f/AAABAAAAAAAEAPj/AAABAAAAAAD0/wAAAAAAAAIAAAD0//3/AAAEAAAAAAD0//7/AAAAAAEAAAD0////AAAAAAEAAADz//f/AAABAAAAAADy//f/AAAAAAAAAADy//j/AAAAAAEAAADy//n/AAAAAAEAAADy//r/AAAAAAEAAADy//v/AAAAAAEAAADy//z/AAAAAAEAAADy//3/AAAAAAIAAADz//3/AAABAAIAAAA=")
