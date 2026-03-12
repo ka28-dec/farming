@@ -16,8 +16,11 @@ const tool_connection = {
 	Tools.AXE: "axe",
 	Tools.WATER: "water",
 }
+enum Seeds {CORN, TOMATO, PUMPKIN}
+var current_seed: Seeds = Seeds.CORN
 
 signal tool_use(tool: Tools, pos: Vector2)
+signal seed_use(seed: Seeds, pos: Vector2)
 
 
 func _physics_process(_delta: float) -> void:
@@ -45,6 +48,17 @@ func get_input() -> void:
 	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):
 		var tool_direction = Input.get_axis("tool_backward", "tool_forward") as int
 		current_tool = posmod(current_tool + tool_direction, Tools.size()) as Tools
+		
+	# 種切り替え
+	if Input.is_action_just_pressed("seed_toggle"):
+		current_seed = posmod(current_seed + 1, Seeds.size()) as Seeds
+	
+	if Input.is_action_just_pressed("plant"):
+		can_move = false
+		direction = Vector2.ZERO
+		seed_use.emit(current_seed, position + last_direction * tool_direction_offset + tool_direction_offset_y)
+		await get_tree().create_timer(0.5).timeout
+		can_move = true
 
 
 func animation() -> void:
