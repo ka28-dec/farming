@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var grid_pos: Vector2i
-var age: float = 2
+var age: float
 var max_age: int
 var grow_speed: float
 const plant_data = {

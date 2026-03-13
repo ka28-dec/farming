@@ -2,10 +2,14 @@ extends Node2D
 
 @onready var player := $Objects/Player
 var plant_scene:PackedScene = preload("res://scenes/level/plant.tscn")
+@export var daytime_gradient: Gradient
 
 func _process(_delta: float) -> void:
+	var daytime_point: float = 1.0 - $DayTimer.time_left / $DayTimer.wait_time
+	$CanvasModulate.color = daytime_gradient.sample(daytime_point)
 	if Input.is_action_just_pressed("ui_focus_next"):
 		day_switch()
+
 
 func _on_player_tool_use(tool: int, pos: Vector2) -> void:
 	var grid_pos := Vector2i(floor(pos.x / 16.0), floor(pos.y / 16.0))
@@ -48,3 +52,4 @@ func level_reset():
 	for plant in get_tree().get_nodes_in_group("Plants"):
 		plant.grow(plant.grid_pos in $Layers/SoilWaterLayer.get_used_cells())
 	$Layers/SoilWaterLayer.clear()
+	$DayTimer.start()

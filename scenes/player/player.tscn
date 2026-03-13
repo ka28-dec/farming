@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://66nf2bncbefy" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://dpfxibevth7y" path="res://graphics/characters/player_animations.png" id="2_yewv4"]
+[ext_resource type="AudioStream" uid="uid://bxbb5os8ycr5w" path="res://audio/hoe.wav" id="3_gmlin"]
+[ext_resource type="AudioStream" uid="uid://dtsnwvwr5w013" path="res://audio/axe.wav" id="4_p47bc"]
+[ext_resource type="AudioStream" uid="uid://b1sbhvfoqd0u1" path="res://audio/water.ogg" id="5_75vfm"]
+[ext_resource type="AudioStream" uid="uid://dff6xghytlqqh" path="res://audio/step.mp3" id="6_75vfm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yewv4"]
 radius = 5.0
@@ -955,5 +959,24 @@ parameters/OneShot/request = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=326442268]
 zoom = Vector2(3, 3)
+
+[node name="Sounds" type="Node" parent="." unique_id=1289686868]
+
+[node name="HoeSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=174187550]
+stream = ExtResource("3_gmlin")
+
+[node name="AxeSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1021351436]
+stream = ExtResource("4_p47bc")
+volume_db = 20.0
+
+[node name="WaterSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1824246472]
+stream = ExtResource("5_75vfm")
+
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1025792879]
+stream = ExtResource("6_75vfm")
+
+[node name="WalkSoundTimer" type="Timer" parent="Sounds" unique_id=252717362]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

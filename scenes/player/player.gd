@@ -27,6 +27,9 @@ func _physics_process(_delta: float) -> void:
 		get_input()
 	if direction:
 		last_direction = direction
+		if not $Sounds/WalkSoundTimer.time_left:
+			$Sounds/WalkSound.play()
+			$Sounds/WalkSoundTimer.start()
 	velocity = direction * speed * int(can_move) # true: 1, false: 0
 	move_and_slide()
 	animation()
@@ -42,6 +45,11 @@ func get_input() -> void:
 		if current_tool in [Tools.HOE, Tools.WATER]:
 			await $AnimationTree.animation_finished
 			tool_use.emit(current_tool, position + last_direction * tool_direction_offset + tool_direction_offset_y)
+			match current_tool:
+				Tools.HOE:
+					$Sounds/HoeSound.play()
+				Tools.WATER:
+					$Sounds/WaterSound.play()
 	
 	# ツール切り替え
 	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):
@@ -81,4 +89,5 @@ func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 
 
 func axe_use() -> void:
+	$Sounds/AxeSound.play()
 	tool_use.emit(current_tool, position + last_direction * tool_direction_offset + tool_direction_offset_y)
