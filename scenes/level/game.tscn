@@ -948,9 +948,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=586987657]
 stream = ExtResource("9_ig4jx")
+autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1365097677]
-color = Color(0.93678063, 0.36811498, 0.47552538, 1)
+color = Color(0.88446844, 0.58910114, 0.71839136, 1)
 
 [node name="DayTimer" type="Timer" parent="." unique_id=415887059]
 wait_time = 5.0
